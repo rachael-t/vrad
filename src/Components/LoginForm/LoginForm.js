@@ -28,6 +28,8 @@ class LoginForm extends Component {
       alert("Please fix this shit right now")
     }
     else {
+      event.preventDefault();
+      this.props.loginUser(this.state.userName, this.state.userPurpose)
       alert("BAM")
     }
   }

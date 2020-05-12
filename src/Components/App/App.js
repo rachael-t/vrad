@@ -5,19 +5,24 @@ import LoginForm from '../LoginForm/LoginForm';
 class App extends Component {
   constructor() {
     super();
-    this.state ={
-      user: {
+    this.state = {
         name: null,
-        email: null,
         purpose: null
-      }
     }
+  }
+
+  loginUser = (userName, userPurpose) => {
+      this.setState (
+        { name: userName,
+          purpose: userPurpose
+        }
+    )
   }
 
   render() {
     return(
       <div className="App">
-        <LoginForm />
+        <LoginForm loginUser={this.loginUser}/>
       </div>
     )
   }
