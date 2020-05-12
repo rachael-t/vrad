@@ -13,16 +13,24 @@ class LoginForm extends Component {
   }
 
   handleChange = (event) => {
-    if (event.target.className === "name-input") {
-    this.setState( {userName: event.target.value} )
-  } else if (event.target.className === "email-input") {
-    this.setState( {userEmail: event.target.value} )
-  } else if (event.target.className === "purpose-selection") {
-    this.setState ( {userPurpose: event.target.value} )
+      if (event.target.className === "name-input") {
+      this.setState( {userName: event.target.value} )
+    } else if (event.target.className === "email-input") {
+      this.setState( {userEmail: event.target.value} )
+    } else if (event.target.className === "purpose-selection") {
+      this.setState ( {userPurpose: event.target.value} )
+    }
   }
 
+  handleSubmit = (event) => {
+    if (this.state.userName === "" || this.state.userEmail === "" ||
+    this.state.userPurpose === "") {
+      alert("Please fix this shit right now")
+    }
+    else {
+      alert("BAM")
+    }
   }
-
 
 
   render() {
@@ -38,7 +46,7 @@ class LoginForm extends Component {
         <option value="vacation">vacation</option>
         <option value="other">other</option>
        </select>
-       <button className="login-button">Log In</button>
+       <button className="login-button" onClick={this.handleSubmit}>Log In</button>
       </form>
       </section>
     )
