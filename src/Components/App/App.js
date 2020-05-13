@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LoginForm from '../LoginForm/LoginForm';
+import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
   constructor() {
@@ -22,7 +23,13 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-        <LoginForm loginUser={this.loginUser}/>
+        <header>
+          <h1>VRAD</h1>
+        </header>
+        <main>
+          <LoginForm loginUser={this.loginUser}/>
+          <UserProfile name={this.state.name} purpose={this.state.purpose} />
+        </main>
       </div>
     )
   }
