@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './LoginForm.css';
-
+import PropTypes from 'prop-types';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -71,3 +71,7 @@ class LoginForm extends Component {
 }
 
 export default LoginForm;
+
+LoginForm.propTypes = {
+  loginUser: PropTypes.func,
+}
