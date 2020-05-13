@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import LoginForm from '../LoginForm/LoginForm';
 import UserProfile from '../UserProfile/UserProfile';
+import AreaContainer from '../AreaContainer/AreaContainer';
 
 class App extends Component {
   constructor() {
@@ -29,6 +30,7 @@ class App extends Component {
         <main>
           <LoginForm loginUser={this.loginUser}/>
           <UserProfile name={this.state.name} purpose={this.state.purpose} />
+          <AreaContainer />
         </main>
       </div>
     )
