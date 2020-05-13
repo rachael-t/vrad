@@ -22,7 +22,12 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-        <LoginForm loginUser={this.loginUser}/>
+        <header>
+          <h1>VRAD</h1>
+        </header>
+        <main>
+          <LoginForm loginUser={this.loginUser}/>
+        </main>
       </div>
     )
   }
