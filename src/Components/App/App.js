@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LoginForm from '../LoginForm/LoginForm';
+import UserProfile from '../UserProfile/UserProfile';
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,7 @@ class App extends Component {
         </header>
         <main>
           <LoginForm loginUser={this.loginUser}/>
+          <UserProfile name={this.state.name} purpose={this.state.purpose} />
         </main>
       </div>
     )
