@@ -63,7 +63,7 @@ class LoginForm extends Component {
             className="login-button"
             onClick={this.handleSubmit}>
               Log In
-              </button>
+          </button>
         </form>
       </section>
     )
