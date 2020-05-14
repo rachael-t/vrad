@@ -11,4 +11,18 @@
   width: 300px;
 }
 
+.view-listings {
+  background-color: #3366ff;
+  border-radius: 5px;
+  color: white;
+  font-size: medium;
+  font-weight: 700;
+  margin-bottom: 30px;
+  padding: 2px 0 5px;
+  text-align: center;
+  width: 150px;
+}
 
+.area-card p, h2 {
+  margin-bottom: 8px;
+}
