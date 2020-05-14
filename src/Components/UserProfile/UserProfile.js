@@ -1,8 +1,10 @@
 import React from 'react';
 import './UserProfile.css';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const UserProfile = ({ name, purpose }) => {
+
+const UserProfile = ({ name, purpose, logoutUser }) => {
     return (
         <div className='user-profile-container'>
             <h3>{`Hello, ${name}!`}</h3>
@@ -10,9 +12,11 @@ const UserProfile = ({ name, purpose }) => {
             <button className="user-favorites-button">
                 View Favorites
             </button>
-            <button className="user-logout-button">
+            <Link to='/'>
+            <button className="user-logout-button" onClick={logoutUser}>
                 Log Out
             </button>
+            </Link>
         </div>
     )
 }

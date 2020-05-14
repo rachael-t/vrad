@@ -10,15 +10,27 @@ class App extends Component {
     super();
     this.state = {
         name: null,
-        purpose: null
+        purpose: null,
+        loggedIn: false,
     }
   }
 
   loginUser = (userName, userPurpose) => {
       this.setState (
         { name: userName,
-          purpose: userPurpose
+          purpose: userPurpose,
+          loggedIn: true
         }
+    )
+  }
+
+  logoutUser = () => {
+    this.setState (
+      {
+          name: null,
+          purpose: null,
+          loggedIn: false,
+      }
     )
   }
 
@@ -29,10 +41,10 @@ class App extends Component {
           <h1>VRAD</h1>
         </header>
         <main>
+        {this.state.loggedIn ? <UserProfile name={this.state.name} purpose={this.state.purpose} logoutUser={this.logoutUser}/> : ""}
         <Route exact path='/' render={() => <LoginForm loginUser={this.loginUser}/>}/>
         <Route exact path ='/areas' render={() => (<AreaContainer />)} />
 
-          <UserProfile name={this.state.name} purpose={this.state.purpose} />
 
         </main>
       </div>
