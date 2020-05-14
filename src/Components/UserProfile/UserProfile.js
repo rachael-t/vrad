@@ -6,7 +6,7 @@ const UserProfile = ({ name, purpose }) => {
     return (
         <div className='user-profile-container'>
             <h3>{`Hello, ${name}!`}</h3>
-            <p>{`Reason for your Denver visit: ${purpose}`}</p>
+            <p>{`Reason for your visit to Denver: ${purpose}`}</p>
             <button className="user-favorites-button">
                 View Favorites
             </button>
