@@ -60,3 +60,10 @@ class AreaContainer extends Component {
 
 
 export default AreaContainer;
+
+//
+// AreaCo.propTypes = {
+//     name: PropTypes.string,
+//     shortName: PropTypes.string,
+//     about: PropTypes.string,
+// }
