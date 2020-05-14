@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Route, NavLink } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import UserProfile from '../UserProfile/UserProfile';
 import AreaContainer from '../AreaContainer/AreaContainer';
@@ -28,9 +29,11 @@ class App extends Component {
           <h1>VRAD</h1>
         </header>
         <main>
-          <LoginForm loginUser={this.loginUser}/>
+        <Route exact path='/' render={() => <LoginForm loginUser={this.loginUser}/>}/>
+        <Route exact path ='/areas' render={() => (<AreaContainer />)} />
+
           <UserProfile name={this.state.name} purpose={this.state.purpose} />
-          <AreaContainer />
+
         </main>
       </div>
     )
