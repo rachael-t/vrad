@@ -1,0 +1,28 @@
+.user-profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #ffcc33; */
+    background-color: #ffd24d;
+    border-radius: 1px;
+    height: 40em;
+    width: 20%;
+}
+
+h3, p {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.user-favorites-button, .user-logout-button {
+    background-color: #3366ff;
+    border-radius: 5px;
+    color: white;
+    font-size: medium;
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding: 2px 0 5px;
+    text-align: center;
+    width: 150px;
+}
