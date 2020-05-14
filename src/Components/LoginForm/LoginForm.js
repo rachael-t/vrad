@@ -26,7 +26,7 @@ class LoginForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.state.userName === "" || this.state.userEmail === "" || this.state.userPurpose === "") {
-      this.setState( {errorMessage: "Please fix this shit right now"} )
+      this.setState( {errorMessage: "Please complete all items."} )
     } else {
       this.props.loginUser(this.state.userName, this.state.userPurpose);
       //this will be changed in iteration 2:
@@ -37,9 +37,9 @@ class LoginForm extends Component {
   render() {
     return (
       <section className="login-section">
-        <h2>Welcome, please log in!</h2>
-        <p className="login-error-message">{this.state.errorMessage}</p>
         <form className="login-form">
+          <h2>Welcome, please log in!</h2>
+          <p className="login-error-message">{this.state.errorMessage}</p>
           <input 
               className="name-input"
               type="text"
@@ -54,7 +54,7 @@ class LoginForm extends Component {
               className="purpose-selection"
               placeholder='select your purpose'
               onChange={this.handleChange}>
-            <option disabled selected value="what is your purpose">what is your purpose?</option>
+            <option disabled selected value="what is your purpose">What brings you to Denver?</option>
             <option value="business">business</option>
             <option value="vacation">vacation</option>
             <option value="other">other</option>
@@ -63,7 +63,7 @@ class LoginForm extends Component {
             className="login-button"
             onClick={this.handleSubmit}>
               Log In
-              </button>
+          </button>
         </form>
       </section>
     )

@@ -1,6 +1,28 @@
 .area-card {
-  border: 2px solid red;
-  margin: 1%;
-  width: 60%;
+  align-items: center;
+  background-color: white;
+  border: solid #3366ff;
+  display: flex;
+  flex-direction: column;
+  height: 375px;
+  justify-content: space-between;
+  margin: 3%;
   padding: 1%;
+  width: 300px;
+}
+
+.view-listings {
+  background-color: #3366ff;
+  border-radius: 5px;
+  color: white;
+  font-size: medium;
+  font-weight: 700;
+  margin-bottom: 30px;
+  padding: 2px 0 5px;
+  text-align: center;
+  width: 150px;
+}
+
+.area-card p, h2 {
+  margin-bottom: 8px;
 }

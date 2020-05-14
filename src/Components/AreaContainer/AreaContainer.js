@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './AreaContainer.css';
-import AreaCard from '../AreaCard/AreaCard'
+import AreaCard from '../AreaCard/AreaCard';
 
 class AreaContainer extends Component {
   constructor() {
@@ -19,17 +19,14 @@ class AreaContainer extends Component {
             .then(res => res.json())
             .then(areaInfo => {
               return {
-                shortName: area.area,
+                about: areaInfo.about,
                 id: areaInfo.id,
+                listings: areaInfo.listings,
                 name: areaInfo.name,
-                about: areaInfo.about
-
+                shortName: area.area
               }
-
             })
-
         })
-        console.log(areaPromises);
         return Promise.all(areaPromises)
       })
       .then(areas => {
@@ -41,29 +38,22 @@ class AreaContainer extends Component {
     const areas = this.state.areas.map(area => {
       return (
         <AreaCard
-        key={ area.id }
-        id={ area.id }
-        shortName={ area.shortName}
-        name={ area.name }
-        about={ area.about }
+          about={ area.about }
+          id={ area.id }
+          key={ area.id }
+          listings={ area.listings }
+          name={ area.name }
+          shortName={ area.shortName }
         />
       )
     });
 
     return (
       <div className='area-container'>
-      { areas }
+        { areas }
       </div>
     )
   }
 }
 
-
 export default AreaContainer;
-
-//
-// AreaCo.propTypes = {
-//     name: PropTypes.string,
-//     shortName: PropTypes.string,
-//     about: PropTypes.string,
-// }

@@ -7,10 +7,10 @@ import PropTypes from 'prop-types';
 const AreaCard = (props) => {
     return (
         <div className='area-card'>
-         <h2>{props.name}</h2>
-         <p>{`also known as ${props.shortName}`}</p>
-         <p>{props.about}</p>
-         <button className='view-listings'>view listings</button>
+            <h2>{props.name}</h2>
+            <p>{`Also known as ${props.shortName}`}</p>
+            <p>{props.about}</p>
+            <button className='view-listings'>View Listings</button>
         </div>
     )
 }
