@@ -19,10 +19,11 @@ class AreaContainer extends Component {
             .then(res => res.json())
             .then(areaInfo => {
               return {
-                shortName: area.area,
+                about: areaInfo.about,
                 id: areaInfo.id,
+                listings: areaInfo.listings,
                 name: areaInfo.name,
-                about: areaInfo.about
+                shortName: area.area
               }
             })
         })
@@ -37,11 +38,12 @@ class AreaContainer extends Component {
     const areas = this.state.areas.map(area => {
       return (
         <AreaCard
-          key={ area.id }
-          id={ area.id }
-          shortName={ area.shortName }
-          name={ area.name }
           about={ area.about }
+          id={ area.id }
+          key={ area.id }
+          listings={ area.listings }
+          name={ area.name }
+          shortName={ area.shortName }
         />
       )
     });
