@@ -3,8 +3,6 @@ import { render } from '@testing-library/react';
 import AreaCard from './AreaCard';
 import '@testing-library/jest-dom';
 
-
-
 describe('AreaContainer', () => {
     it('Should render the area card', () => {
       const { getByText } = render(<AreaCard
