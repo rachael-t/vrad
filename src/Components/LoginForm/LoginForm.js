@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './LoginForm.css';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -29,8 +30,7 @@ class LoginForm extends Component {
       this.setState( {errorMessage: "Please complete all items."} )
     } else {
       this.props.loginUser(this.state.userName, this.state.userPurpose);
-      //this will be changed in iteration 2:
-      this.setState( {errorMessage: 'WOOHOO'})
+      this.props.history.push('/areas')
     }
   }
 
@@ -40,17 +40,17 @@ class LoginForm extends Component {
         <form className="login-form">
           <h2>Welcome, please log in!</h2>
           <p className="login-error-message">{this.state.errorMessage}</p>
-          <input 
+          <input
               className="name-input"
               type="text"
               placeholder="name"
               onChange={this.handleChange}/>
-          <input 
+          <input
               className="email-input"
               type="text"
               placeholder="email"
               onChange={this.handleChange}/>
-          <select 
+          <select
               className="purpose-selection"
               placeholder='select your purpose'
               onChange={this.handleChange}>
@@ -59,18 +59,20 @@ class LoginForm extends Component {
             <option value="vacation">vacation</option>
             <option value="other">other</option>
           </select>
-          <button 
+
+          <button
             className="login-button"
             onClick={this.handleSubmit}>
               Log In
           </button>
+
         </form>
       </section>
     )
   }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
 
 LoginForm.propTypes = {
   loginUser: PropTypes.func,
