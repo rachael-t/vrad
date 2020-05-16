@@ -3,24 +3,46 @@ import ListingCard from '../ListingCard/ListingCard';
 import './ListingContainer.css';
 
 class ListingContainer extends Component {
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
-            listings: []
+            allListings: [],
+            selectedListings: []
         }
     }
 
     componentDidMount() {
-    // receive listings as a prop that came from AreaCard
-    // map over that array and then fetch each listing's details
-    // put their info in listings 
+        fetch('https://vrad-api.herokuapp.com/api/v1/listings/')
+            .then(response => response.json())
+            .then(data => {
+                const listingPromises = data.listings.map(listing => {
+                    return {
+                        address: listing.address.street,
+                        costPerNight: listing.details.cost_per_night,
+                        listingId: listing.listing_id,
+                        name: listing.name,
+                        numBathrooms: listing.details.baths,
+                        numBedrooms: listing.details.beds,
+                        uniqueFeatures: listing.details.features,
+                        zipcode: listing.address.zip
+                    }
+                })
+                return Promise.all(listingPromises)
+            })
+            .then(listings => {
+                this.setState({ allListings: listings })
+            })
     }
 
+    // filterSelectedListings(props) {
+    //     console.log(this.props.match)
+    // }
+    // go find the listings with a area_id that matches the match.param.area_id
     
 
     render() {
         return (
-            <h1>Listings</h1>
+            <h1>{this.props.match}</h1>
         )
     }
 
