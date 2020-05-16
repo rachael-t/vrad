@@ -34,6 +34,7 @@ class ListingDetail extends Component {
             {uniqueFeatures.map(feature => {
                 return <li>{feature}</li>
             })}
+        <button>Add to Favorites</button>
       </div>
     )
   }
