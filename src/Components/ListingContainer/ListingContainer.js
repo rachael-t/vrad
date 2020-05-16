@@ -45,11 +45,21 @@ class ListingContainer extends Component {
     }
 
     render() {
+        const listingCards = this.state.selectedListings.map(listing => {
+          return (
+            <ListingCard
+                { ... listing }
+            />
+          )
+        });
+    
         return (
-            <h1>{this.props.match}</h1>
+          <div className='listing-container'>
+          <h2 className='listing-title'>Area Listings</h2>
+            { listingCards }
+          </div>
         )
-    }
-
+      }
 }
 
 export default ListingContainer;
