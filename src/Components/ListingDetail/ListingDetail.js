@@ -24,7 +24,7 @@ class ListingDetail extends Component {
     } = this.props.listingDetails
 
     return (
-      <div className={listingId}>
+      <div className='listing-detail-container'>
         <h2>{name}</h2>
         <p>Located at {address}, Denver, CO {zipcode}</p>
         <img className='listing-cover-image' src={`/images/${listingId}_a.jpg`} alt='' />
