@@ -18,6 +18,7 @@ class ListingContainer extends Component {
                 const listingPromises = data.listings.map(listing => {
                     return {
                         address: listing.address.street,
+                        areaId: listing.area_id,
                         costPerNight: listing.details.cost_per_night,
                         listingId: listing.listing_id,
                         name: listing.name,
@@ -31,14 +32,17 @@ class ListingContainer extends Component {
             })
             .then(listings => {
                 this.setState({ allListings: listings })
+                this.filterSelectedListings()
             })
     }
 
-    // filterSelectedListings(props) {
-    //     console.log(this.props.match)
-    // }
-    // go find the listings with a area_id that matches the match.param.area_id
-    
+// should this be under componentDidMount? We were receiving an error (saved in slack) because of this.setState which is why we moved the invocation to line 35
+    filterSelectedListings() {
+        const areaListings = this.state.allListings.filter(listing => {
+            return listing.areaId === parseInt(this.props.match)
+        })
+        this.setState({ selectedListings: areaListings })
+    }
 
     render() {
         return (
