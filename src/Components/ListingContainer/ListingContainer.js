@@ -20,6 +20,7 @@ class ListingContainer extends Component {
                         address: listing.address.street,
                         areaId: listing.area_id,
                         costPerNight: listing.details.cost_per_night,
+                        key: listing.listing_id,
                         listingId: listing.listing_id,
                         name: listing.name,
                         numBathrooms: listing.details.baths,
@@ -44,10 +45,11 @@ class ListingContainer extends Component {
         this.setState({ selectedListings: areaListings })
     }
 
-    render() {
+    render(props) {
         const listingCards = this.state.selectedListings.map(listing => {
           return (
             <ListingCard
+                viewListingDetails={this.props.viewListingDetails}
                 { ... listing }
             />
           )
