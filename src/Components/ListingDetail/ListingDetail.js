@@ -27,7 +27,9 @@ class ListingDetail extends Component {
       <div className={listingId}>
         <h2>{name}</h2>
         <p>Located at {address}, Denver, CO {zipcode}</p>
-        <p>ADD IMAGES</p>
+        <img className='listing-cover-image' src={`/images/${listingId}_a.jpg`} alt='' />
+        <img className='listing-cover-image' src={`/images/${listingId}_b.jpg`} alt='' />
+        <img className='listing-cover-image' src={`/images/${listingId}_c.jpg`} alt='' />
         <p>This rental is ${costPerNight} per night.</p>
         <p>It has {numBedrooms} bedrooms and {numBathooms} bathrooms.</p>
         <ul>Some unique features includes:</ul>
