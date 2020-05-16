@@ -4,6 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import UserProfile from '../UserProfile/UserProfile';
 import AreaContainer from '../AreaContainer/AreaContainer';
+import ListingContainer from '../ListingContainer/ListingContainer';
 
 class App extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class App extends Component {
         name: null,
         purpose: null,
         loggedIn: false,
+        listings: [],
     }
   }
 
@@ -34,6 +36,12 @@ class App extends Component {
     )
   }
 
+  updateListings = (selectedListings) => {
+    this.setState({
+      listings: selectedListings
+    })
+  }
+
   render() {
     return(
       <div className="App">
@@ -43,9 +51,11 @@ class App extends Component {
         <main>
         {this.state.loggedIn ? <UserProfile name={this.state.name} purpose={this.state.purpose} logoutUser={this.logoutUser}/> : ""}
         <Route exact path='/' render={() => <LoginForm loginUser={this.loginUser}/>}/>
-        <Route exact path ='/areas' render={() => (<AreaContainer />)} />
-
-
+        <Route exact path ='/areas' render={() => (<AreaContainer updateListings={this.updateListings} />)} />
+        <Route 
+          exact 
+          path='/areas/:area_id/listings/' 
+          render={() => (<ListingContainer listings={this.state.listings} />)}/>
         </main>
       </div>
     )
