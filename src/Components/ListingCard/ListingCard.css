@@ -26,3 +26,8 @@
   .listing-card p, h2 {
     margin-bottom: 8px;
   }
+
+  img {
+      width: 250px;
+      height: 200px;
+  }
