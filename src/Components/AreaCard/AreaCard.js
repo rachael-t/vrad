@@ -1,8 +1,7 @@
 import React from 'react';
 import './AreaCard.css';
 import PropTypes from 'prop-types';
-
-
+import { Link } from 'react-router-dom';
 
 const AreaCard = (props) => {
     return (
@@ -10,7 +9,9 @@ const AreaCard = (props) => {
             <h2>{props.name}</h2>
             <p>{`Also known as ${props.shortName}`}</p>
             <p>{props.about}</p>
-            <button className='view-listings'>View Listings</button>
+            <Link to={`/areas/${props.id}/listings/`}>
+                <button className='view-listings' onClick={() => props.updateListings(props.listings)}>View Listings</button>
+            </Link>
         </div>
     )
 }
