@@ -50,7 +50,7 @@ class AreaContainer extends Component {
 
     return (
       <div className='area-container'>
-      <h2>Denver Neighborhoods</h2>
+      <h2 className='area-title'>Denver Neighborhoods</h2>
         { areas }
       </div>
     )
