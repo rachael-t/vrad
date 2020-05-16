@@ -21,7 +21,6 @@ class AreaContainer extends Component {
               return {
                 about: areaInfo.about,
                 id: areaInfo.id,
-                listings: areaInfo.listings,
                 name: areaInfo.name,
                 shortName: area.area
               }
@@ -44,13 +43,14 @@ class AreaContainer extends Component {
           listings={ area.listings }
           name={ area.name }
           shortName={ area.shortName }
+          updateListings={ this.props.updateListings }
         />
       )
     });
 
     return (
       <div className='area-container'>
-      <h2>Denver Neighborhoods</h2>
+      <h2 className='area-title'>Denver Neighborhoods</h2>
         { areas }
       </div>
     )

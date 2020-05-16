@@ -1,0 +1,33 @@
+.listing-card {
+    align-items: center;
+    background-color: white;
+    border: solid #3366ff;
+    display: flex;
+    flex-direction: column;
+    height: 375px;
+    justify-content: space-between;
+    margin: 3%;
+    padding: 1%;
+    width: 300px;
+  }
+  
+  .view-listing-details {
+    background-color: #3366ff;
+    border-radius: 5px;
+    color: white;
+    font-size: medium;
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding: 2px 0 5px;
+    text-align: center;
+    width: 150px;
+  }
+  
+  .listing-card p, h2 {
+    margin-bottom: 8px;
+  }
+
+  img {
+      width: 250px;
+      height: 200px;
+  }
