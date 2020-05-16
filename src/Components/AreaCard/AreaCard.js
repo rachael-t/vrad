@@ -10,7 +10,7 @@ const AreaCard = (props) => {
             <p>{`Also known as ${props.shortName}`}</p>
             <p>{props.about}</p>
             <Link to={`/areas/${props.id}/listings/`}>
-                <button className='view-listings' onClick={() => props.updateListings(props.listings)}>View Listings</button>
+                <button className='view-listings'>View Listings</button>
             </Link>
         </div>
     )

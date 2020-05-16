@@ -21,7 +21,6 @@ class AreaContainer extends Component {
               return {
                 about: areaInfo.about,
                 id: areaInfo.id,
-                listings: areaInfo.listings,
                 name: areaInfo.name,
                 shortName: area.area
               }
