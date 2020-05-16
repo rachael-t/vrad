@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import UserProfile from '../UserProfile/UserProfile';
 import AreaContainer from '../AreaContainer/AreaContainer';
