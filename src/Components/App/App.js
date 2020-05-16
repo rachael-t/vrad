@@ -13,7 +13,6 @@ class App extends Component {
         name: null,
         purpose: null,
         loggedIn: false,
-        listings: [],
     }
   }
 
@@ -36,12 +35,6 @@ class App extends Component {
     )
   }
 
-  updateListings = (selectedListings) => {
-    this.setState({
-      listings: selectedListings
-    })
-  }
-
   render() {
     return(
       <div className="App">
@@ -55,7 +48,7 @@ class App extends Component {
         <Route 
           exact 
           path='/areas/:area_id/listings/' 
-          render={() => (<ListingContainer listings={this.state.listings} />)}/>
+          render={({ match }) => (<ListingContainer listings={this.state.listings} match={match.params.area_id}/>)}/>
         </main>
       </div>
     )
