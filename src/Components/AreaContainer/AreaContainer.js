@@ -44,6 +44,7 @@ class AreaContainer extends Component {
           listings={ area.listings }
           name={ area.name }
           shortName={ area.shortName }
+          updateListings={ this.props.updateListings }
         />
       )
     });
