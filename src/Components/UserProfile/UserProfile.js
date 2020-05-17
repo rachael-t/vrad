@@ -9,9 +9,11 @@ const UserProfile = ({ name, purpose, logoutUser }) => {
         <div className='user-profile-container'>
             <h3>{`Hello, ${name}!`}</h3>
             <p>{`Reason for your visit to Denver: ${purpose}`}</p>
+            <Link to='/favorites'>
             <button className="user-favorites-button">
                 View Favorites
             </button>
+            </Link>
             <Link to='/'>
             <button className="user-logout-button" onClick={logoutUser}>
                 Log Out
