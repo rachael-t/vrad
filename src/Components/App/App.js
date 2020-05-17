@@ -35,6 +35,8 @@ class App extends Component {
           name: null,
           purpose: null,
           loggedIn: false,
+          currentListing: '',
+          favoriteListings: [],
       }
     )
   }
@@ -48,6 +50,7 @@ class App extends Component {
   }
 
   addToFavorites = (listing) => {
+    //check to see if it's already favorited to avoid dups
     this.setState(
       {
         favoriteListings: [...this.state.favoriteListings, listing]
@@ -63,7 +66,7 @@ class App extends Component {
           <h1>VRAD</h1>
         </header>
         <main>
-        {this.state.loggedIn ? <UserProfile name={this.state.name} purpose={this.state.purpose} logoutUser={this.logoutUser}/> : ""}
+        {this.state.loggedIn ? <UserProfile name={this.state.name} purpose={this.state.purpose} logoutUser={this.logoutUser} favoriteCount={this.state.favoriteListings.length}/> : ""}
         <Route
           exact
           path='/'
