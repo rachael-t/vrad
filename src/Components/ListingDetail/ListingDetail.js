@@ -10,7 +10,6 @@ class ListingDetail extends Component {
   }
 
   render() {
-    console.log(this.props.listingDetails)
     const {
         address,
         areaId,

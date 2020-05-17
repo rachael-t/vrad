@@ -8,7 +8,7 @@ const ListingCard = (props) => {
         <div className='listing-card'>
             <h2>{props.name}</h2>
             <img className='listing-cover-image' src={`/images/${props.listingId}_a.jpg`} alt='' />
-            <Link 
+            <Link
                 to={`/areas/${props.areaId}/listings/${props.listingId}`}
                 onClick={() => props.viewListingDetails({...props})}
             >
