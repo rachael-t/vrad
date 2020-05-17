@@ -9,7 +9,7 @@ const AreaCard = (props) => {
             <h2>{props.name}</h2>
             <p>{`Also known as ${props.shortName}`}</p>
             <p>{props.about}</p>
-            <Link to={`/areas/${props.id}/listings/`}>
+            <Link to={`/areas/${props.id}/listings/`} className='area-card-link'>
                 <button className='view-listings'>View Listings</button>
             </Link>
         </div>
