@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
+import ListingCard from '../ListingCard/ListingCard';
 // import ListingCard from '../ListingCard/ListingCard';
 import './FavoritesContainer.css';
 
-const FavoritesContainer = () => {
+const FavoritesContainer = (props) => {
+const favoriteCards = props.favorites.map(favorite => {
+  return <ListingCard
+    {...favorite.listingDetails}
+  />
+  // return favorite.listingDetails.map(detail => {
+  //   return <ListingCard
+  //     {...detail}
+  //   />
+  // })
+})
+
+// console.log(favoriteCards);
 return (
-  <h1>this is ya faves</h1>
+  <div>
+  <h2>Your Favorite Listings</h2>
+  {favoriteCards}
+  </div>
 )
 
 }
