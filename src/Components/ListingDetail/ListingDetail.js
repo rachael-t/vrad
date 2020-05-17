@@ -11,13 +11,13 @@ class ListingDetail extends Component {
 
   render() {
     console.log(this.props.listingDetails)
-    const { 
+    const {
         address,
         areaId,
         costPerNight,
         listingId,
         name,
-        numBathooms,
+        numBathrooms,
         numBedrooms,
         uniqueFeatures,
         zipcode
@@ -31,7 +31,7 @@ class ListingDetail extends Component {
         <img className='listing-cover-image' src={`/images/${listingId}_b.jpg`} alt='' />
         <img className='listing-cover-image' src={`/images/${listingId}_c.jpg`} alt='' />
         <p>This rental is ${costPerNight} per night.</p>
-        <p>It has {numBedrooms} bedrooms and {numBathooms} bathrooms.</p>
+        <p>It has {numBedrooms} bedrooms and {numBathrooms} bathrooms.</p>
         <ul>Some unique features includes:</ul>
             {uniqueFeatures.map(feature => {
                 return <li>{feature}</li>
