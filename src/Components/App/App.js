@@ -47,6 +47,15 @@ class App extends Component {
     )
   }
 
+  addToFavorites = (listing) => {
+    this.setState(
+      {
+        favoriteListings: [...this.state.favoriteListings, listing]
+      }
+    )
+
+  }
+
   render() {
     return(
       <div className="App">
@@ -70,11 +79,11 @@ class App extends Component {
         <Route
           exact
           path='/areas/:area_id/listings/:listing_id'
-          render={() => (<ListingDetail listingDetails={this.state.currentListing}/>)}/>
+          render={() => (<ListingDetail listingDetails={this.state.currentListing} addToFavorites={this.addToFavorites}/>)}/>
         <Route
-        exact
-        path='/favorites'
-        render={() => (<FavoritesContainer favorites={this.state.favoriteListings} />)} />
+         exact
+         path='/favorites'
+         render={() => (<FavoritesContainer favorites={this.state.favoriteListings} />)} />
         </main>
       </div>
     )
