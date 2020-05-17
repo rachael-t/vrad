@@ -6,6 +6,7 @@ import UserProfile from '../UserProfile/UserProfile';
 import AreaContainer from '../AreaContainer/AreaContainer';
 import ListingContainer from '../ListingContainer/ListingContainer';
 import ListingDetail from '../ListingDetail/ListingDetail';
+import FavoritesContainer from '../FavoritesContainer/FavoritesContainer';
 
 class App extends Component {
   constructor() {
@@ -15,6 +16,7 @@ class App extends Component {
         purpose: null,
         loggedIn: false,
         currentListing: '',
+        favoriteListings: [],
     }
   }
 
@@ -53,7 +55,7 @@ class App extends Component {
         </header>
         <main>
         {this.state.loggedIn ? <UserProfile name={this.state.name} purpose={this.state.purpose} logoutUser={this.logoutUser}/> : ""}
-        <Route 
+        <Route
           exact
           path='/'
           render={() => <LoginForm loginUser={this.loginUser}/>}/>
@@ -61,14 +63,18 @@ class App extends Component {
           exact
           path ='/areas'
           render={() => (<AreaContainer updateListings={this.updateListings} />)} />
-        <Route 
-          exact 
-          path='/areas/:area_id/listings/' 
+        <Route
+          exact
+          path='/areas/:area_id/listings/'
           render={({ match }) => (<ListingContainer listings={this.state.listings} match={match.params.area_id} viewListingDetails={this.viewListingDetails}/>)}/>
         <Route
           exact
           path='/areas/:area_id/listings/:listing_id'
           render={() => (<ListingDetail listingDetails={this.state.currentListing}/>)}/>
+        <Route
+        exact
+        path='/favorites'
+        render={() => (<FavoritesContainer favorites={this.state.favoriteListings} />)} />
         </main>
       </div>
     )
