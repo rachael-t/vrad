@@ -36,7 +36,7 @@ class ListingDetail extends Component {
             {uniqueFeatures.map(feature => {
                 return <li>{feature}</li>
             })}
-        <button>Add to Favorites</button>
+        <button onClick={() => this.props.addToFavorites({...this.props})}>Add to Favorites</button>
       </div>
     )
   }
