@@ -50,12 +50,16 @@ class App extends Component {
   }
 
   addToFavorites = (listing) => {
-    //check to see if it's already favorited to avoid dups
-    this.setState(
+    const newFavoriteId = listing.listingDetails.listingId;
+    !this.state.favoriteListings.find(favorite => {
+      return favorite.listingDetails.listingId === newFavoriteId
+    }
+  ) ?
+  this.setState(
       {
         favoriteListings: [...this.state.favoriteListings, listing]
       }
-    )
+    ) : alert('Listing already saved to favorites')
 
   }
 
