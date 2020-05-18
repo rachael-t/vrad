@@ -6,7 +6,7 @@ import './FavoritesContainer.css';
 const FavoritesContainer = (props) => {
 const favoriteCards = props.favorites.map(favorite => {
   return <ListingCard
-    {...favorite.listingDetails}
+    {...favorite}
   />
   // return favorite.listingDetails.map(detail => {
   //   return <ListingCard

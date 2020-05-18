@@ -7,7 +7,7 @@ const ListingCard = (props) => {
     return (
         <div className='listing-card'>
             <h2>{props.name}</h2>
-            <button className='favorite-button'><img className='heart-icon' src={'/heart-outline.svg'}/></button>
+            <button onClick={() => props.addToFavorites({...props})} className='favorite-button'><img className='heart-icon' src={'/heart-outline.svg'}/></button>
             <img className='listing-cover-image' src={`/images/${props.listingId}_a.jpg`} alt='' />
             <Link
                 to={`/areas/${props.areaId}/listings/${props.listingId}`}

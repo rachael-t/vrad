@@ -50,9 +50,9 @@ class App extends Component {
   }
 
   addToFavorites = (listing) => {
-    const newFavoriteId = listing.listingDetails.listingId;
+    const newFavoriteId = listing.listingId;
     !this.state.favoriteListings.find(favorite => {
-      return favorite.listingDetails.listingId === newFavoriteId
+      return favorite.listingId === newFavoriteId
     }
   ) ?
   this.setState(
@@ -82,7 +82,7 @@ class App extends Component {
         <Route
           exact
           path='/areas/:area_id/listings/'
-          render={({ match }) => (<ListingContainer listings={this.state.listings} match={match.params.area_id} viewListingDetails={this.viewListingDetails}/>)}/>
+          render={({ match }) => (<ListingContainer listings={this.state.listings} match={match.params.area_id} viewListingDetails={this.viewListingDetails} addToFavorites={this.addToFavorites}/>)}/>
         <Route
           exact
           path='/areas/:area_id/listings/:listing_id'

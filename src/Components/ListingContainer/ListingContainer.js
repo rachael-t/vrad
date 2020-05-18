@@ -49,12 +49,12 @@ class ListingContainer extends Component {
         const listingCards = this.state.selectedListings.map(listing => {
           return (
             <ListingCard
-                viewListingDetails={this.props.viewListingDetails}
+                addToFavorites={this.props.addToFavorites} viewListingDetails={this.props.viewListingDetails}
                 { ... listing }
             />
           )
         });
-    
+
         return (
           <div className='listing-container'>
           <h2 className='listing-title'>Area Listings</h2>
