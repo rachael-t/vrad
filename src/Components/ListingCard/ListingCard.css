@@ -10,7 +10,7 @@
     padding: 1%;
     width: 300px;
   }
-  
+
   .view-listing-details {
     background-color: #3366ff;
     border-radius: 5px;
@@ -22,7 +22,7 @@
     text-align: center;
     width: 150px;
   }
-  
+
   .listing-card p, h2 {
     margin-bottom: 8px;
   }
@@ -30,4 +30,17 @@
   img {
       width: 250px;
       height: 200px;
+  }
+
+  .heart-icon {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+
+  }
+
+
+  .favorite-button {
+    /* display: flex; */
+    border: none;
   }

@@ -35,7 +35,7 @@ class ListingDetail extends Component {
             {uniqueFeatures.map(feature => {
                 return <li>{feature}</li>
             })}
-        <button onClick={() => this.props.addToFavorites({...this.props})}>Add to Favorites</button>
+        <button className='favorite-button' onClick={() => this.props.addToFavorites({...this.props})}><img className='heart-icon' src={'/heart-outline.svg'}/></button>
       </div>
     )
   }
