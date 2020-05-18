@@ -5,7 +5,7 @@ class ListingDetail extends Component {
   constructor(props) {
     super();
     this.state = {
-      isFavorited: false,
+  
     }
   }
 
@@ -15,6 +15,7 @@ class ListingDetail extends Component {
         areaId,
         costPerNight,
         listingId,
+        isFavorite,
         name,
         numBathrooms,
         numBedrooms,

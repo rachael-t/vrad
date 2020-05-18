@@ -20,6 +20,7 @@ class ListingContainer extends Component {
                         address: listing.address.street,
                         areaId: listing.area_id,
                         costPerNight: listing.details.cost_per_night,
+                        isFavorite: false,
                         key: listing.listing_id,
                         listingId: listing.listing_id,
                         name: listing.name,

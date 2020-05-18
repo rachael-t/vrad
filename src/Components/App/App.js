@@ -51,15 +51,28 @@ class App extends Component {
 
   addToFavorites = (listing) => {
     const newFavoriteId = listing.listingId;
-    !this.state.favoriteListings.find(favorite => {
-      return favorite.listingId === newFavoriteId
-    }
-  ) ?
-  this.setState(
-      {
-        favoriteListings: [...this.state.favoriteListings, listing]
+    if (!this.state.favoriteListings.find(favorite => {
+        return favorite.listingId === newFavoriteId
+      })) {
+        listing.isFavorite = true;
+        this.setState(
+            {
+              favoriteListings: [...this.state.favoriteListings, listing]
+            }
+          )
+      } else {
+        alert('Listing already saved to favorites')
       }
-    ) : alert('Listing already saved to favorites')
+  //   !this.state.favoriteListings.find(favorite => {
+  //     return favorite.listingId === newFavoriteId
+  //   }
+  // ) ? listing.isFavorite = true &&
+  // this.setState(
+  //     {
+  //       favoriteListings: [...this.state.favoriteListings, listing]
+  //     }
+  //   )
+  //   : alert('Listing already saved to favorites')
 
   }
 
