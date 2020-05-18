@@ -49,7 +49,7 @@ class App extends Component {
     )
   }
 
-  addToFavorites = (listing) => {
+  modifyFavorites = (listing) => {
     const newFavoriteId = listing.listingId;
     if (!this.state.favoriteListings.find(favorite => {
         return favorite.listingId === newFavoriteId
@@ -61,19 +61,16 @@ class App extends Component {
             }
           )
       } else {
-        alert('Listing already saved to favorites')
+        const newFavoriteState = this.state.favoriteListings.filter(faveListing =>
+        faveListing.listingId !== listing.listingId)
+        console.log(newFavoriteState)
+        this.setState(
+          {
+            favoriteListings: newFavoriteState
+          }
+        )
+        listing.isFavorite = false;
       }
-  //   !this.state.favoriteListings.find(favorite => {
-  //     return favorite.listingId === newFavoriteId
-  //   }
-  // ) ? listing.isFavorite = true &&
-  // this.setState(
-  //     {
-  //       favoriteListings: [...this.state.favoriteListings, listing]
-  //     }
-  //   )
-  //   : alert('Listing already saved to favorites')
-
   }
 
   render() {
@@ -95,11 +92,11 @@ class App extends Component {
         <Route
           exact
           path='/areas/:area_id/listings/'
-          render={({ match }) => (<ListingContainer listings={this.state.listings} match={match.params.area_id} viewListingDetails={this.viewListingDetails} addToFavorites={this.addToFavorites}/>)}/>
+          render={({ match }) => (<ListingContainer match={match.params.area_id} viewListingDetails={this.viewListingDetails} modifyFavorites={this.modifyFavorites}/>)}/>
         <Route
           exact
           path='/areas/:area_id/listings/:listing_id'
-          render={() => (<ListingDetail listingDetails={this.state.currentListing} addToFavorites={this.addToFavorites}/>)}/>
+          render={() => (<ListingDetail listingDetails={this.state.currentListing} modifyFavorites={this.modifyFavorites}/>)}/>
         <Route
          exact
          path='/favorites'

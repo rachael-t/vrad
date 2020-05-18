@@ -32,6 +32,7 @@ class ListingContainer extends Component {
                 })
                 return Promise.all(listingPromises)
             })
+            .then(console.log('fuck this shit'))
             .then(listings => {
                 this.setState({ allListings: listings })
                 this.filterSelectedListings()
@@ -50,7 +51,7 @@ class ListingContainer extends Component {
         const listingCards = this.state.selectedListings.map(listing => {
           return (
             <ListingCard
-                addToFavorites={this.props.addToFavorites} viewListingDetails={this.props.viewListingDetails}
+                modifyFavorites={this.props.modifyFavorites} viewListingDetails={this.props.viewListingDetails}
                 { ... listing }
             />
           )
