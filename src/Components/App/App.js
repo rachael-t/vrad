@@ -37,7 +37,8 @@ class App extends Component {
     });
   };
 
-  viewListingDetails = (listingDetails) => {
+  viewListingDetails = (listingDetails, wasFavorited) => {
+    listingDetails.isFavorite = wasFavorited;
     this.setState({
       currentListing: listingDetails,
     });
@@ -55,11 +56,13 @@ class App extends Component {
       listing.isFavorite = false;
       this.setState({
         favoriteListings: filteredListings,
+        currentListing: listing
       });
     } else {
       listing.isFavorite = true;
       this.setState({
         favoriteListings: [...this.state.favoriteListings, listing],
+        currentListing: listing
       });
     }
   };
