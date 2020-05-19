@@ -5,17 +5,17 @@ class ListingDetail extends Component {
   constructor(props) {
     super();
     this.state = {
-      isFavorited: false,
+
     }
   }
 
   render() {
-    console.log(this.props.listingDetails)
     const {
         address,
         areaId,
         costPerNight,
         listingId,
+        isFavorite,
         name,
         numBathrooms,
         numBedrooms,
@@ -36,7 +36,7 @@ class ListingDetail extends Component {
             {uniqueFeatures.map(feature => {
                 return <li>{feature}</li>
             })}
-        <button>Add to Favorites</button>
+        <button className='favorite-button' onClick={() => this.props.modifyFavoritesvorites({...this.props.listingDetails})}><img className='heart-icon' src={'/heart-outline.svg'}/></button>
       </div>
     )
   }

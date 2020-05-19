@@ -20,6 +20,7 @@ class ListingContainer extends Component {
                         address: listing.address.street,
                         areaId: listing.area_id,
                         costPerNight: listing.details.cost_per_night,
+                        isFavorite: false,
                         key: listing.listing_id,
                         listingId: listing.listing_id,
                         name: listing.name,
@@ -31,6 +32,7 @@ class ListingContainer extends Component {
                 })
                 return Promise.all(listingPromises)
             })
+            .then(console.log('fuck this shit'))
             .then(listings => {
                 this.setState({ allListings: listings })
                 this.filterSelectedListings()
@@ -49,12 +51,12 @@ class ListingContainer extends Component {
         const listingCards = this.state.selectedListings.map(listing => {
           return (
             <ListingCard
-                viewListingDetails={this.props.viewListingDetails}
+                modifyFavorites={this.props.modifyFavorites} viewListingDetails={this.props.viewListingDetails}
                 { ... listing }
             />
           )
         });
-    
+
         return (
           <div className='listing-container'>
           <h2 className='listing-title'>Area Listings</h2>

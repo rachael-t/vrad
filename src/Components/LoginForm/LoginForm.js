@@ -47,7 +47,7 @@ class LoginForm extends Component {
               onChange={this.handleChange}/>
           <input
               className="email-input"
-              type="text"
+              type="email"
               placeholder="email"
               onChange={this.handleChange}/>
           <select
