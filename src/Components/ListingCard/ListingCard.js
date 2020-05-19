@@ -6,16 +6,16 @@ class ListingCard extends Component {
   constructor(props) {
     super();
     this.state = {
-      isFavorite: props.isFavorite,
+      wasFavorited: props.isFavorite,
     };
   }
 
   handleFavoriteClick = () => {
-    if (this.state.isFavorite === true) {
-      this.setState({ isFavorite: false });
+    if (this.state.wasFavorited === true) {
+      this.setState({ wasFavorited: false });
       this.props.modifyFavorites({ ...this.props });
     } else {
-      this.setState({ isFavorite: true });
+      this.setState({ wasFavorited: true });
       this.props.modifyFavorites({ ...this.props });
     }
   };
@@ -32,7 +32,7 @@ class ListingCard extends Component {
             className="heart-icon"
             alt=""
             src={
-              this.state.isFavorite === true
+              this.state.wasFavorited === true
                 ? "/heart.svg"
                 : "/heart-outline.svg"
             }
@@ -45,7 +45,7 @@ class ListingCard extends Component {
         />
         <Link
           to={`/areas/${this.props.areaId}/listings/${this.props.listingId}`}
-          onClick={() => this.props.viewListingDetails({ ...this.props })}
+          onClick={() => this.props.viewListingDetails({ ...this.props }, this.state.wasFavorited)}
         >
           <button className="view-listing-details">View Listing Details</button>
         </Link>
