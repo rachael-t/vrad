@@ -21,7 +21,10 @@ class App extends Component {
   }
 
   loginUser = (userName, userPurpose) => {
-    this.setState({ name: userName, purpose: userPurpose, loggedIn: true });
+    this.setState({ 
+      name: userName, 
+      purpose: userPurpose, 
+      loggedIn: true });
   };
 
   logoutUser = () => {
@@ -42,24 +45,22 @@ class App extends Component {
 
   modifyFavorites = (listing) => {
     const newListingId = listing.listingId;
-    if (
-      !this.state.favoriteListings.find((favorite) => {
-        return favorite.listingId === newListingId;
-      })
-    ) {
+    const isFavorited = this.state.favoriteListings.find((favorite) => {
+      return favorite.listingId === newListingId;
+    });
+    const filteredListings = this.state.favoriteListings.filter(
+      (faveListing) => faveListing.listingId !== newListingId
+    );
+    if (isFavorited) {
+      listing.isFavorite = false;
+      this.setState({
+        favoriteListings: filteredListings,
+      });
+    } else {
       listing.isFavorite = true;
       this.setState({
         favoriteListings: [...this.state.favoriteListings, listing],
       });
-    } else {
-      const newFavoriteState = this.state.favoriteListings.filter(
-        (faveListing) => faveListing.listingId !== newListingId
-      );
-      console.log(newFavoriteState);
-      this.setState({
-        favoriteListings: newFavoriteState,
-      });
-      listing.isFavorite = false;
     }
   };
 
@@ -100,6 +101,7 @@ class App extends Component {
                 match={match.params.area_id}
                 viewListingDetails={this.viewListingDetails}
                 modifyFavorites={this.modifyFavorites}
+                favoriteListings={this.state.favoriteListings}
               />
             )}
           />
