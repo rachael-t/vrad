@@ -7,7 +7,7 @@ import { createMemoryHistory } from "history";
 
 describe("AreaCard", () => {
   it("Should render the area card", () => {
-    const history = createMemoryHistory();
+    // const history = createMemoryHistory();
     const { getByText } = render(
       <BrowserRouter>
         <AreaCard
@@ -25,23 +25,26 @@ describe("AreaCard", () => {
     expect(getByText("Also known as RiNo")).toBeInTheDocument();
   });
 
-  // it('Should render listings on click', () => {
-  // const history = createMemoryHistory();
-  // const { getByRole, getAllByRole, getByText } = render(<BrowserRouter>
-  //   <AreaCard
-  //     history={history}
-  //     about={ 'great area' }
-  //     id={ 303 }
-  //     key={ 303 }
-  //     listings={ [] }
-  //     name={ 'River North' }
-  //     shortName={ 'RiNo' }
-  //   />
-  //   </BrowserRouter>);
-  // const viewListingsLink = getByRole('button', { name: 'View Listings'});
-  // console.log(viewListingsLink);
-  // expect(getByText('great area')).toBeInTheDocument();
-  // fireEvent.click(viewListingsLink);
-  // expect(getByText('great area')).not.toBeInTheDocument();
-  // })
+  it('Should render listings on click', () => {
+  const history = createMemoryHistory();
+  const { getByRole, getAllByRole, getByText } = render(<Router history={history}>
+    <AreaCard
+      about={ 'great area' }
+      id={ 303 }
+      key={ 303 }
+      listings={ [] }
+      name={ 'River North' }
+      shortName={ 'RiNo' }
+    />
+    </Router>);
+
+  const link = getByRole('link', { name: 'View Listings'});
+  // const link = getAllByRole('link')[0]
+  // console.log(link)
+  expect(getByText('great area')).toBeInTheDocument();
+  fireEvent.click(link);
+  expect(getByText('great area')).not.toBeInTheDocument();
+  })
 });
+
+// expect(history.location.pathname).toBe(‘/’)
