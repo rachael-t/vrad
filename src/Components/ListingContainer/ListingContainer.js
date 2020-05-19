@@ -32,14 +32,27 @@ class ListingContainer extends Component {
         });
         return Promise.all(listingPromises);
       })
-      .then(console.log("fuck this shit"))
       .then((listings) => {
-        this.setState({ allListings: listings });
+        if (this.props.favoriteListings.length > 0) {
+          let updatedListings = listings.map((listing) => {
+            this.props.favoriteListings.forEach((favListing) => {
+              if (favListing.listingId === listing.listingId) {
+                listing.isFavorite = true;
+              }
+            });
+            return listing;
+          });
+          return updatedListings;
+        } else {
+          return listings;
+        }
+      })
+      .then((listingsToDisplay) => {
+        this.setState({ allListings: listingsToDisplay });
         this.filterSelectedListings();
       });
   }
 
-  // should this be under componentDidMount? We were receiving an error (saved in slack) because of this.setState which is why we moved the invocation to line 35
   filterSelectedListings() {
     const areaListings = this.state.allListings.filter((listing) => {
       return listing.areaId === parseInt(this.props.match);
