@@ -10,7 +10,13 @@ const FavoritesContainer = (props) => {
   return (
     <div>
       <h2>Your Favorite Listings</h2>
-      {favoriteCards}
+      {props.favorites.length ? (
+        favoriteCards
+      ) : (
+        <p className="no-favs-message">
+          You currently do not have any listings saved to favorites.
+        </p>
+      )}
     </div>
   );
 };
