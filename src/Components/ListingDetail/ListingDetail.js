@@ -20,6 +20,7 @@ class ListingDetail extends Component {
       uniqueFeatures,
       zipcode,
     } = this.props.listingDetails;
+    console.log('listing detail', isFavorite)
 
     return (
       <div className="listing-detail-container">
@@ -53,10 +54,18 @@ class ListingDetail extends Component {
         <button
           className="favorite-button"
           onClick={() =>
-            this.props.modifyFavoritesvorites({ ...this.props.listingDetails })
+            this.props.modifyFavorites({ ...this.props.listingDetails })
           }
         >
-          <img className="heart-icon" alt="" src={"/heart-outline.svg"} />
+         <img
+            className="heart-icon"
+            alt=""
+            src={
+              isFavorite === true
+                ? "/heart.svg"
+                : "/heart-outline.svg"
+            }
+          />
         </button>
       </div>
     );
