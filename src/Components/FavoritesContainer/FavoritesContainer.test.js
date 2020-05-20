@@ -30,4 +30,9 @@ true,
 </BrowserRouter>);
     expect(getByText("Your Favorite Listings")).toBeInTheDocument();
   });
+  it("Should show a message if there are no favorite listings", () => {
+    const { getByText } = render(<BrowserRouter><FavoritesContainer favorites={[]} />
+</BrowserRouter>);
+    expect(getByText("You currently do not have any listings saved to favorites.")).toBeInTheDocument();
+  });
 });

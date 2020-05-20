@@ -84,7 +84,7 @@ const listingData = {'listings' : [{
 
 describe("ListingContainer", () => {
 
-  it.skip("Should render the listing container", () => {
+  it("Should render the listing container", () => {
 
     fetchListings.mockResolvedValueOnce(listingData)
     const { getByText, debug } = render(<MemoryRouter><ListingContainer
@@ -98,8 +98,8 @@ describe("ListingContainer", () => {
     const { getByText, debug } = render(<MemoryRouter>
       <ListingContainer favoriteListings={[]} />
     </MemoryRouter>);
+    debug
     const listingContainer = getByText('Area Listings');
-    console.log(listingContainer)
     const listingName = await waitFor(() => getByText('New Modern Flat in RiNo'))
     expect(listingContainer).toBeInTheDocument();
     expect(listingName).toBeInTheDocument();
