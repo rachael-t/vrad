@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ListingCard from "../ListingCard/ListingCard";
 import "./ListingContainer.css";
-import { fetchListings } from '/Users/oliviawebster/turing/3mod/vrad/src/ApiCalls.js';
+import { fetchListings } from '../../ApiCalls.js';
 
 class ListingContainer extends Component {
   constructor(props) {
