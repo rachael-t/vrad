@@ -13,8 +13,6 @@ class ListingContainer extends Component {
   }
 
   componentDidMount() {
-    // fetch("https://vrad-api.herokuapp.com/api/v1/listings/")
-    //   .then((response) => response.json())
     fetchListings()
       .then((data) => {
         const listingPromises = data.listings.map((listing) => {
