@@ -30,7 +30,7 @@ class ListingCard extends Component {
         >
           <img
             className="heart-icon"
-            alt=""
+            alt="heart icon"
             src={
               this.state.wasFavorited === true
                 ? "/heart.svg"

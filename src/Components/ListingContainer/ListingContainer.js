@@ -48,7 +48,6 @@ class ListingContainer extends Component {
         }
       })
       .then((listingsToDisplay) => {
-        console.log(listingsToDisplay)
         this.setState({ allListings: listingsToDisplay });
         this.filterSelectedListings();
       });

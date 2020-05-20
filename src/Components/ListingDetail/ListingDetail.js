@@ -20,7 +20,6 @@ class ListingDetail extends Component {
       uniqueFeatures,
       zipcode,
     } = this.props.listingDetails;
-    console.log('listing detail', isFavorite)
 
     return (
       <div className="listing-detail-container">
@@ -59,7 +58,7 @@ class ListingDetail extends Component {
         >
          <img
             className="heart-icon"
-            alt=""
+            alt="heart icon"
             src={
               isFavorite === true
                 ? "/heart.svg"
