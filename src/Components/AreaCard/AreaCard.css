@@ -23,6 +23,7 @@
   width: 150px;
 }
 
-.area-card p, h2 {
+.area-card p,
+h2 {
   margin-bottom: 8px;
 }

@@ -1,38 +1,42 @@
-import React, { Component } from 'react';
-import './LoginForm.css';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import "./LoginForm.css";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
 class LoginForm extends Component {
   constructor(props) {
-    super()
+    super();
     this.state = {
       userName: "",
       userEmail: "",
       userPurpose: "",
-      errorMessage: ""
-    }
+      errorMessage: "",
+    };
   }
 
   handleChange = (event) => {
     if (event.target.className === "name-input") {
-      this.setState( {userName: event.target.value} )
+      this.setState({ userName: event.target.value });
     } else if (event.target.className === "email-input") {
-      this.setState( {userEmail: event.target.value} )
+      this.setState({ userEmail: event.target.value });
     } else if (event.target.className === "purpose-selection") {
-      this.setState ( {userPurpose: event.target.value} )
+      this.setState({ userPurpose: event.target.value });
     }
-  }
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.userName === "" || this.state.userEmail === "" || this.state.userPurpose === "") {
-      this.setState( {errorMessage: "Please complete all items."} )
+    if (
+      this.state.userName === "" ||
+      this.state.userEmail === "" ||
+      this.state.userPurpose === ""
+    ) {
+      this.setState({ errorMessage: "Please complete all items." });
     } else {
       this.props.loginUser(this.state.userName, this.state.userPurpose);
-      this.props.history.push('/areas')
+      this.props.history.push("/areas");
     }
-  }
+  };
 
   render() {
     return (
@@ -41,34 +45,36 @@ class LoginForm extends Component {
           <h2>Welcome, please log in!</h2>
           <p className="login-error-message">{this.state.errorMessage}</p>
           <input
-              className="name-input"
-              type="text"
-              placeholder="name"
-              onChange={this.handleChange}/>
+            className="name-input"
+            type="text"
+            placeholder="name"
+            onChange={this.handleChange}
+          />
           <input
-              className="email-input"
-              type="email"
-              placeholder="email"
-              onChange={this.handleChange}/>
+            className="email-input"
+            type="email"
+            placeholder="email"
+            onChange={this.handleChange}
+          />
           <select
-              className="purpose-selection"
-              placeholder='select your purpose'
-              onChange={this.handleChange}>
-            <option disabled selected value="what is your purpose">What brings you to Denver?</option>
+            className="purpose-selection"
+            placeholder="select your purpose"
+            onChange={this.handleChange}
+          >
+            <option disabled selected value="what is your purpose">
+              What brings you to Denver?
+            </option>
             <option value="business">business</option>
             <option value="vacation">vacation</option>
             <option value="other">other</option>
           </select>
 
-          <button
-            className="login-button"
-            onClick={this.handleSubmit}>
-              Log In
+          <button className="login-button" onClick={this.handleSubmit}>
+            Log In
           </button>
-
         </form>
       </section>
-    )
+    );
   }
 }
 
@@ -76,4 +82,4 @@ export default withRouter(LoginForm);
 
 LoginForm.propTypes = {
   loginUser: PropTypes.func,
-}
+};
