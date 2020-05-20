@@ -139,8 +139,4 @@ describe('App', () => {
     expect(noFavoriteMessage).toBeInTheDocument();
   })
 
-
-
-
-
 })
