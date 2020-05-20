@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ListingCard from "../ListingCard/ListingCard";
 import "./ListingContainer.css";
+import { fetchListings } from '../../ApiCalls.js';
 
 class ListingContainer extends Component {
   constructor(props) {
@@ -12,8 +13,7 @@ class ListingContainer extends Component {
   }
 
   componentDidMount() {
-    fetch("https://vrad-api.herokuapp.com/api/v1/listings/")
-      .then((response) => response.json())
+    fetchListings()
       .then((data) => {
         const listingPromises = data.listings.map((listing) => {
           return {

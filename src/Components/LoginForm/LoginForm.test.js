@@ -38,7 +38,6 @@ describe("LoginForm", () => {
       target: { value: "business" },
     });
     fireEvent.click(getByText("Log In"));
-
     expect(mockLoginUser).toHaveBeenCalledWith("Olivia", "business");
   });
 
@@ -57,7 +56,6 @@ describe("LoginForm", () => {
       target: { value: "business" },
     });
     fireEvent.click(getByText("Log In"));
-
     expect(getByText("Please complete all items.")).toBeInTheDocument();
   });
 });
