@@ -22,11 +22,9 @@ class ListingDetail extends Component {
     } = this.props.listingDetails;
 
     return (
-      <div className="listing-detail-container">
-        <h2>{name}</h2>
-        <p>
-          Located at {address}, Denver, CO {zipcode}
-        </p>
+      <div className='listing-detail-container'>
+        <h2 className='listing-name'>{name}</h2>
+        <div className='listing-images-container'>
         <img
           className="listing-cover-image"
           src={`/images/${listingId}_a.jpg`}
@@ -42,6 +40,11 @@ class ListingDetail extends Component {
           src={`/images/${listingId}_c.jpg`}
           alt=""
         />
+        </div>
+        <div className='listing-info'>
+        <p>
+          Located at {address}, Denver, CO {zipcode}
+        </p>
         <p>This rental is ${costPerNight} per night.</p>
         <p>
           It has {numBedrooms} bedrooms and {numBathrooms} bathrooms.
@@ -66,6 +69,7 @@ class ListingDetail extends Component {
             }
           />
         </button>
+        </div>
       </div>
     );
   }

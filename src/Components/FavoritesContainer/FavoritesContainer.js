@@ -8,8 +8,8 @@ const FavoritesContainer = (props) => {
   });
 
   return (
-    <div>
-      <h2>Your Favorite Listings</h2>
+    <div className='favorite-container'>
+      <h2 className='favorite-title'>Your Favorite Listings</h2>
       {props.favorites.length ? (
         favoriteCards
       ) : (
