@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import UserProfile from "./UserProfile";
 import "@testing-library/jest-dom";
-import { BrowserRouter, Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 describe("UserProfile", () => {
   it("Should render the user profile", () => {

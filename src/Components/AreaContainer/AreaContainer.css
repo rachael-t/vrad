@@ -1,9 +1,16 @@
 .area-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
 }
+
+.area-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .area-title {
   display: flex;
   justify-content: center;

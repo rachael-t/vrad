@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import ListingCard from "./ListingCard";
 import "@testing-library/jest-dom";
-import { BrowserRouter, Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Listing", () => {
   it("Should render the listing card", () => {

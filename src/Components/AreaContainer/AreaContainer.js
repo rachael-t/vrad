@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./AreaContainer.css";
 import AreaCard from "../AreaCard/AreaCard";
+import PropTypes from "prop-types";
 
 class AreaContainer extends Component {
   constructor() {
@@ -51,10 +52,14 @@ class AreaContainer extends Component {
     return (
       <div className="area-container">
         <h2 className="area-title">Denver Neighborhoods</h2>
-        {areas}
+        <div className="area-cards-container">{areas}</div>
       </div>
     );
   }
 }
 
 export default AreaContainer;
+
+AreaContainer.propTypes = {
+  updateListings: PropTypes.func,
+};

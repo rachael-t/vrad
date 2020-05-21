@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ListingCard from "../ListingCard/ListingCard";
 import "./ListingContainer.css";
-import { fetchListings } from '../../ApiCalls.js';
+import { fetchListings } from "../../ApiCalls.js";
+import PropTypes from "prop-types";
 
 class ListingContainer extends Component {
   constructor(props) {
@@ -81,3 +82,9 @@ class ListingContainer extends Component {
 }
 
 export default ListingContainer;
+
+ListingContainer.propTypes = {
+  modifyFavorites: PropTypes.func,
+  viewListingDetails: PropTypes.func,
+  favoriteListings: PropTypes.array,
+};

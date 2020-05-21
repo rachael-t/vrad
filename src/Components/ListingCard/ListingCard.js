@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./ListingCard.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class ListingCard extends Component {
   constructor(props) {
@@ -45,7 +46,12 @@ class ListingCard extends Component {
         />
         <Link
           to={`/areas/${this.props.areaId}/listings/${this.props.listingId}`}
-          onClick={() => this.props.viewListingDetails({ ...this.props }, this.state.wasFavorited)}
+          onClick={() =>
+            this.props.viewListingDetails(
+              { ...this.props },
+              this.state.wasFavorited
+            )
+          }
         >
           <button className="view-listing-details">View Listing Details</button>
         </Link>
@@ -55,3 +61,18 @@ class ListingCard extends Component {
 }
 
 export default ListingCard;
+
+ListingCard.propTypes = {
+  modifyFavorites: PropTypes.func,
+  viewListingDetails: PropTypes.func,
+  address: PropTypes.string,
+  areaId: PropTypes.number,
+  costPerNight: PropTypes.number,
+  isFavorite: PropTypes.string,
+  listingId: PropTypes.number,
+  name: PropTypes.string,
+  numBathrooms: PropTypes.number,
+  numBedrooms: PropTypes.number,
+  uniqueFeatures: PropTypes.array,
+  zipcode: PropTypes.number,
+};

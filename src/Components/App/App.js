@@ -21,10 +21,11 @@ class App extends Component {
   }
 
   loginUser = (userName, userPurpose) => {
-    this.setState({ 
-      name: userName, 
-      purpose: userPurpose, 
-      loggedIn: true });
+    this.setState({
+      name: userName,
+      purpose: userPurpose,
+      loggedIn: true,
+    });
   };
 
   logoutUser = () => {
@@ -56,13 +57,13 @@ class App extends Component {
       listing.isFavorite = false;
       this.setState({
         favoriteListings: filteredListings,
-        currentListing: listing
+        currentListing: listing,
       });
     } else {
       listing.isFavorite = true;
       this.setState({
         favoriteListings: [...this.state.favoriteListings, listing],
-        currentListing: listing
+        currentListing: listing,
       });
     }
   };

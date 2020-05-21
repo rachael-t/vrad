@@ -1,6 +1,7 @@
 import React from "react";
 import ListingCard from "../ListingCard/ListingCard";
 import "./FavoritesContainer.css";
+import PropTypes from "prop-types";
 
 const FavoritesContainer = (props) => {
   const favoriteCards = props.favorites.map((favorite) => {
@@ -8,8 +9,8 @@ const FavoritesContainer = (props) => {
   });
 
   return (
-    <div className='favorite-container'>
-      <h2 className='favorite-title'>Your Favorite Listings</h2>
+    <div className="favorite-container">
+      <h2 className="favorite-title">Your Favorite Listings</h2>
       {props.favorites.length ? (
         favoriteCards
       ) : (
@@ -21,3 +22,9 @@ const FavoritesContainer = (props) => {
   );
 };
 export default FavoritesContainer;
+
+FavoritesContainer.propTypes = {
+  favorites: PropTypes.array,
+};
+
+

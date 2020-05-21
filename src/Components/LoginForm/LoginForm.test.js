@@ -2,8 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import LoginForm from "./LoginForm";
 import "@testing-library/jest-dom";
-import { withRouter } from "react-router";
-import { BrowserRouter, Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 describe("LoginForm", () => {
   it("Should render a login form", () => {
