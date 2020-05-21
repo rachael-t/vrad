@@ -6,7 +6,10 @@ It is a sample short term rental application for Denver. A user can log in, view
 
 ### In action 
 
-gif here
+![2020-05-20 19 09 41](https://user-images.githubusercontent.com/54180641/82513128-4ed96800-9acf-11ea-882c-43f6de881c77.gif)
+
+![2020-05-20 19 12 27](https://user-images.githubusercontent.com/54180641/82513136-54cf4900-9acf-11ea-8559-fad07e59f33a.gif)
+
 
 ### Technologies Used:
 - React
